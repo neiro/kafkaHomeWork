@@ -104,21 +104,6 @@
    cd kafkaHomeWorkTwo
 
 
-# Конфигурация Kafka
-kafka:
-  topic:
-    messages: messages
-    filteredMessages: filtered-messages
-    blockedUsers: blocked-users
-    restrictedWords: restricted-words
-  stateStore:
-    blockedUsersStore: blockedUsersStore
-    restrictedWordsStore: restrictedWordsStore
-
-# Конфигурация сервера
-server:
-  port: 8081
-
 # Запуск Приложения
 
 # Доступ к Веб-Интерфейсу и Swagger UI
