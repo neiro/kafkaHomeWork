@@ -159,48 +159,7 @@ server:
 - `blocked-users`
 - `restricted-words`
 
----
 
-# Тестирование через консоль
-
-## Добавление запрещённого слова
-
-```bash
-# Отправка сообщения для добавления слова
-echo '{"key":"bad","value":"ADD"}' | \
-kafka-console-producer.sh --broker-list localhost:9092 --topic restricted-words --property "parse.key=true" --property "key.separator=:">
-```
-
-## Удаление Запрещённого Слова
-
-```bash
-# Отправка сообщения для удаления слова
-echo '{"key":"bad","value":"DELETE"}' | \
-kafka-console-producer.sh --broker-list localhost:9092 --topic restricted-words --property "parse.key=true" --property "key.separator=:">
-```
-
-## Отправка Сообщения
-
-### Отправка сообщения без цензуры
-
-```bash
-echo '{"senderId":"user1","recipientId":"user2","content":"Привет, это сообщение без цензуры."}' | \
-kafka-console-producer.sh --broker-list localhost:9092 --topic messages --property "parse.key=true" --property "key.separator=:">
-```
-
-### Отправка сообщения с ценхурой
-```bash
-echo '{"senderId":"user3","recipientId":"user2","content":"Это сообщение содержит bad цензуру."}' | \
-kafka-console-producer.sh --broker-list localhost:9092 --topic messages --property "parse.key=true" --property "key.separator=:">
-```
-
-## Блокировка пользователя
-
-```bash
-# Отправка сообщения для блокировки пользователя
-echo '{"userId":"user2","blockedUsers":["user3"]}' | \
-kafka-console-producer.sh --broker-list localhost:9092 --topic blocked-users --property "parse.key=true" --property "key.separator=:">
-```
 
 ## Зависимости
 
